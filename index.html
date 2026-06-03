@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Akovance | Operating Partner for PE-Backed SaaS & Tech</title>
+  <meta name="description" content="I help Growth and Buyout funds turn Value Drifters into Value Catalysts. Operating Partner for PE-backed SaaS & Tech." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --dark:     #0A1A6E;
+      --dark-2:   #0D2080;
+      --dark-3:   #1230A0;
+      --gold:     #C9973A;
+      --gold-lt:  #E8B86D;
+      --white:    #F5F5F0;
+      --muted:    #9CA3AF;
+      --border:   rgba(201,151,58,0.18);
+      --radius:   4px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--dark);
+      color: var(--white);
+      line-height: 1.65;
+      font-size: 16px;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 5%;
+      height: 68px;
+      background: rgba(11,15,26,0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-logo {
+      font-size: 1.25rem; font-weight: 800; letter-spacing: 0.06em;
+      color: var(--white); text-decoration: none;
+    }
+    .nav-logo span { color: var(--gold); }
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
+    .nav-links a {
+      color: var(--muted); text-decoration: none; font-size: 0.85rem;
+      font-weight: 500; letter-spacing: 0.04em; text-transform: uppercase;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--white); }
+    .nav-cta {
+      background: var(--gold); color: #0B0F1A;
+      padding: 0.5rem 1.25rem; border-radius: var(--radius);
+      font-size: 0.8rem; font-weight: 700; letter-spacing: 0.06em;
+      text-transform: uppercase; text-decoration: none;
+      transition: background 0.2s;
+    }
+    .nav-cta:hover { background: var(--gold-lt); }
+
+    /* ── HERO ── */
+    #hero {
+      min-height: 100vh;
+      display: flex; flex-direction: column; justify-content: center;
+      padding: 120px 5% 80px;
+      background:
+        radial-gradient(ellipse 80% 60% at 60% 40%, rgba(201,151,58,0.07) 0%, transparent 70%),
+        linear-gradient(160deg, #0A1A6E 0%, #061050 100%);
+      position: relative; overflow: hidden;
+    }
+    #hero::before {
+      content: '';
+      position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+      background: repeating-linear-gradient(
+        0deg,
+        transparent,
+        transparent 79px,
+        rgba(255,255,255,0.015) 79px,
+        rgba(255,255,255,0.015) 80px
+      );
+      pointer-events: none;
+    }
+    .hero-eyebrow {
+      font-size: 0.75rem; font-weight: 600; letter-spacing: 0.18em;
+      text-transform: uppercase; color: var(--gold); margin-bottom: 1.5rem;
+    }
+    .hero-headline {
+      font-size: clamp(2.4rem, 5vw, 4.2rem);
+      font-weight: 900; line-height: 1.1; letter-spacing: -0.02em;
+      max-width: 820px; margin-bottom: 1.5rem;
+    }
+    .hero-headline em { font-style: normal; color: var(--gold); }
+    .hero-sub {
+      font-size: clamp(1rem, 1.8vw, 1.2rem);
+      color: var(--muted); max-width: 600px;
+      font-weight: 400; margin-bottom: 2.5rem; line-height: 1.7;
+    }
+    .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
+    .btn-primary {
+      background: var(--gold); color: #0B0F1A;
+      padding: 0.85rem 2rem; border-radius: var(--radius);
+      font-size: 0.85rem; font-weight: 700; letter-spacing: 0.08em;
+      text-transform: uppercase; text-decoration: none;
+      transition: background 0.2s, transform 0.15s;
+      display: inline-block;
+    }
+    .btn-primary:hover { background: var(--gold-lt); transform: translateY(-1px); }
+    .btn-ghost {
+      border: 1px solid var(--border); color: var(--white);
+      padding: 0.85rem 2rem; border-radius: var(--radius);
+      font-size: 0.85rem; font-weight: 600; letter-spacing: 0.08em;
+      text-transform: uppercase; text-decoration: none;
+      transition: border-color 0.2s, color 0.2s;
+      display: inline-block;
+    }
+    .btn-ghost:hover { border-color: var(--gold); color: var(--gold); }
+    .hero-stats {
+      display: flex; gap: 3rem; margin-top: 4rem; flex-wrap: wrap;
+    }
+    .stat-item { }
+    .stat-num {
+      font-size: 2rem; font-weight: 900; color: var(--gold); letter-spacing: -0.02em;
+    }
+    .stat-label {
+      font-size: 0.75rem; color: var(--muted); letter-spacing: 0.06em;
+      text-transform: uppercase; margin-top: 0.2rem;
+    }
+
+    /* ── SHARED SECTION STYLES ── */
+    section { padding: 100px 5%; }
+    .section-eyebrow {
+      font-size: 0.7rem; font-weight: 700; letter-spacing: 0.2em;
+      text-transform: uppercase; color: var(--gold);
+      margin-bottom: 1rem;
+    }
+    .section-title {
+      font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+      font-weight: 800; line-height: 1.15; letter-spacing: -0.02em;
+      margin-bottom: 1.25rem; max-width: 700px;
+    }
+    .section-title em { font-style: normal; color: var(--gold); }
+    .section-body {
+      color: var(--muted); max-width: 620px; line-height: 1.8;
+      font-size: 1rem;
+    }
+    .divider {
+      width: 48px; height: 2px;
+      background: var(--gold); margin: 1.5rem 0;
+    }
+
+    /* ── PROBLEM ── */
+    #problem { background: var(--dark-2); }
+    .problem-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem; align-items: center;
+      margin-top: 3rem;
+    }
+    .problem-card-row {
+      display: flex; flex-direction: column; gap: 1.5rem;
+    }
+    .problem-card {
+      border-left: 3px solid var(--gold);
+      padding: 1.25rem 1.5rem;
+      background: rgba(201,151,58,0.05);
+      border-radius: 0 var(--radius) var(--radius) 0;
+    }
+    .problem-card h4 {
+      font-size: 0.95rem; font-weight: 700; margin-bottom: 0.4rem;
+      color: var(--white);
+    }
+    .problem-card p { font-size: 0.9rem; color: var(--muted); line-height: 1.6; }
+
+    /* ── SOLUTION ── */
+    #solution { background: var(--dark); }
+    .pillars {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 2rem; margin-top: 3.5rem;
+    }
+    .pillar {
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 2rem 1.75rem;
+      background: var(--dark-3);
+      transition: border-color 0.25s, transform 0.2s;
+    }
+    .pillar:hover { border-color: var(--gold); transform: translateY(-3px); }
+    .pillar-num {
+      font-size: 2.5rem; font-weight: 900; color: var(--border);
+      line-height: 1; margin-bottom: 1rem; letter-spacing: -0.03em;
+    }
+    .pillar h3 {
+      font-size: 1.05rem; font-weight: 700; margin-bottom: 0.75rem;
+      color: var(--white);
+    }
+    .pillar p { font-size: 0.9rem; color: var(--muted); line-height: 1.7; }
+
+    /* ── DIAGNOSTIC ── */
+    #diagnostic { background: var(--dark-2); }
+    .diagnostic-intro {
+      max-width: 700px; margin-bottom: 4rem;
+    }
+    .diagnostic-intro p { color: var(--muted); line-height: 1.8; margin-top: 1rem; }
+    .steps {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 2rem; position: relative;
+    }
+    .steps::before {
+      content: '';
+      position: absolute; top: 2rem; left: calc(16.666% + 1rem);
+      right: calc(16.666% + 1rem); height: 1px;
+      background: var(--border);
+    }
+    .step {
+      display: flex; flex-direction: column; gap: 1rem;
+    }
+    .step-circle {
+      width: 3.5rem; height: 3.5rem; border-radius: 50%;
+      background: var(--gold); color: #0B0F1A;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.1rem; font-weight: 900; flex-shrink: 0;
+      z-index: 1; position: relative;
+    }
+    .step h3 { font-size: 1rem; font-weight: 700; color: var(--white); }
+    .step p { font-size: 0.88rem; color: var(--muted); line-height: 1.7; }
+    .deliverable-box {
+      margin-top: 3rem;
+      border: 1px solid var(--border);
+      border-radius: 8px; padding: 2rem 2.5rem;
+      background: rgba(201,151,58,0.04);
+      max-width: 720px;
+    }
+    .deliverable-box h4 {
+      font-size: 0.75rem; font-weight: 700; letter-spacing: 0.16em;
+      text-transform: uppercase; color: var(--gold); margin-bottom: 1rem;
+    }
+    .deliverable-items {
+      display: flex; flex-direction: column; gap: 0.75rem;
+    }
+    .deliverable-item {
+      display: flex; align-items: flex-start; gap: 0.75rem;
+      font-size: 0.92rem; color: var(--muted);
+    }
+    .deliverable-item .bullet {
+      width: 6px; height: 6px; background: var(--gold);
+      border-radius: 50%; flex-shrink: 0; margin-top: 0.55rem;
+    }
+    .guarantee {
+      margin-top: 1.5rem;
+      font-size: 0.88rem; color: var(--white);
+      font-style: italic; line-height: 1.6;
+    }
+
+    /* ── WHY AKOVANCE ── */
+    #why { background: var(--dark); }
+    .credentials {
+      display: grid; grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem; margin-top: 3.5rem; max-width: 900px;
+    }
+    .cred-card {
+      display: flex; gap: 1.25rem;
+      border: 1px solid var(--border);
+      border-radius: 8px; padding: 1.5rem;
+      background: var(--dark-3);
+    }
+    .cred-icon {
+      width: 2.5rem; height: 2.5rem; border-radius: var(--radius);
+      background: rgba(201,151,58,0.12);
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0; font-size: 1.1rem;
+    }
+    .cred-card h4 {
+      font-size: 0.9rem; font-weight: 700; color: var(--white);
+      margin-bottom: 0.35rem;
+    }
+    .cred-card p { font-size: 0.85rem; color: var(--muted); line-height: 1.6; }
+
+    /* ── AVAILABILITY ── */
+    #availability {
+      background: linear-gradient(135deg, #0D2080 0%, #061050 100%);
+      border-top: 1px solid var(--border);
+      text-align: center;
+    }
+    .avail-inner { max-width: 700px; margin: 0 auto; }
+    .status-grid {
+      display: flex; gap: 1.5rem; justify-content: center;
+      margin: 2.5rem 0; flex-wrap: wrap;
+    }
+    .status-item {
+      background: var(--dark-3); border: 1px solid var(--border);
+      border-radius: 8px; padding: 1.25rem 2rem;
+      min-width: 180px;
+    }
+    .status-dot {
+      display: inline-block; width: 8px; height: 8px;
+      border-radius: 50%; margin-right: 0.5rem;
+      vertical-align: middle;
+    }
+    .dot-filled { background: #EF4444; }
+    .dot-open   { background: #22C55E; }
+    .dot-progress { background: var(--gold); }
+    .status-item .label {
+      font-size: 0.78rem; color: var(--muted); letter-spacing: 0.06em;
+      text-transform: uppercase; margin-bottom: 0.4rem;
+    }
+    .status-item .value {
+      font-size: 1.1rem; font-weight: 700; color: var(--white);
+    }
+    .avail-note {
+      font-size: 0.9rem; color: var(--muted); margin-bottom: 2.5rem;
+      line-height: 1.7;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: #061050;
+      border-top: 1px solid var(--border);
+      padding: 3rem 5%;
+      display: flex; align-items: center; justify-content: space-between;
+      flex-wrap: gap;
+      gap: 1.5rem;
+    }
+    .footer-brand {
+      font-size: 1.1rem; font-weight: 800; letter-spacing: 0.06em;
+      color: var(--white);
+    }
+    .footer-brand span { color: var(--gold); }
+    .footer-links {
+      display: flex; gap: 2rem; list-style: none;
+    }
+    .footer-links a {
+      color: var(--muted); text-decoration: none; font-size: 0.82rem;
+      letter-spacing: 0.04em; transition: color 0.2s;
+    }
+    .footer-links a:hover { color: var(--gold); }
+    .footer-copy { font-size: 0.78rem; color: var(--muted); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      .problem-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+      .pillars { grid-template-columns: 1fr; }
+      .steps { grid-template-columns: 1fr; }
+      .steps::before { display: none; }
+      .credentials { grid-template-columns: 1fr; }
+      .nav-links { display: none; }
+      footer { flex-direction: column; text-align: center; }
+      .footer-links { flex-wrap: wrap; justify-content: center; }
+    }
+    @media (max-width: 600px) {
+      section { padding: 70px 6%; }
+      .hero-stats { gap: 2rem; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#hero" class="nav-logo">AK<span>O</span>VANCE</a>
+  <ul class="nav-links">
+    <li><a href="#problem">The Problem</a></li>
+    <li><a href="#solution">Solution</a></li>
+    <li><a href="#diagnostic">Diagnostic</a></li>
+    <li><a href="#why">Why Akovance</a></li>
+  </ul>
+  <a href="mailto:grigor.kotzev@akovance.com" class="nav-cta">Let's Talk</a>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <p class="hero-eyebrow">Operating Partner · PE-Backed SaaS & Tech</p>
+  <h1 class="hero-headline">
+    Building <em>Operational Alpha</em><br>for the AI Era.
+  </h1>
+  <p class="hero-sub">
+    I help Growth and Buyout funds turn <strong style="color:var(--white)">"Value Drifters"</strong>
+    into <strong style="color:var(--gold)">"Value Catalysts."</strong> I've operated a scale-up to
+    €240M ARR. I know exactly what awaits your portfolio companies between €10M and €100M ARR.
+  </p>
+  <div class="hero-actions">
+    <a href="#diagnostic" class="btn-primary">Request a Diagnostic</a>
+    <a href="#why" class="btn-ghost">Why Akovance</a>
+  </div>
+  <div class="hero-stats">
+    <div class="stat-item">
+      <div class="stat-num">€240M</div>
+      <div class="stat-label">ARR Operated</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">107%</div>
+      <div class="stat-label">NRR Achieved</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">$40M</div>
+      <div class="stat-label">Portfolio Managed</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">3–4</div>
+      <div class="stat-label">Funds Per Year</div>
+    </div>
+  </div>
+</section>
+
+<!-- PROBLEM -->
+<section id="problem">
+  <p class="section-eyebrow">The Problem</p>
+  <h2 class="section-title">Strategy Without <em>Execution Muscle</em></h2>
+  <div class="divider"></div>
+  <div class="problem-grid">
+    <div>
+      <p class="section-body">
+        Many SaaS companies in the €10M–€150M range suffer from <strong style="color:var(--white)">"Value Drift"</strong>:
+        burning resources, stalled growth, and friction-heavy engines.
+        Strategy alone isn't enough for the 2026 execution cycle.
+        They need an <strong style="color:var(--gold)">Execution Reboot.</strong>
+      </p>
+      <p class="section-body" style="margin-top:1.25rem;">
+        "Big company" playbooks fail when copy-pasted into this high-growth stage.
+        The operators who have lived it — and know where the bodies are buried — are the ones
+        who can unlock real shareholder value.
+      </p>
+    </div>
+    <div class="problem-card-row">
+      <div class="problem-card">
+        <h4>Burning Resources</h4>
+        <p>GTM spend leaking through an undefined ICP and misaligned sales motion.</p>
+      </div>
+      <div class="problem-card">
+        <h4>Stalled Growth</h4>
+        <p>NRR decaying while churn goes unmeasured and adoption remains low.</p>
+      </div>
+      <div class="problem-card">
+        <h4>Friction-Heavy Engine</h4>
+        <p>Manual, gut-feel decisions replacing the data-driven operating cadence that scale demands.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SOLUTION -->
+<section id="solution">
+  <p class="section-eyebrow">The Solution</p>
+  <h2 class="section-title">A Dedicated <em>Operating Partner</em></h2>
+  <div class="divider"></div>
+  <p class="section-body">
+    I provide the "Operating Muscle" required to activate AI-driven commercial motions
+    and GTM transformations — embedded alongside your portfolio company's leadership team.
+  </p>
+  <div class="pillars">
+    <div class="pillar">
+      <div class="pillar-num">01</div>
+      <h3>GTM Transformation</h3>
+      <p>Redefining ICP and sales motions for the €10M–€150M ARR range — where generic playbooks go to die.</p>
+    </div>
+    <div class="pillar">
+      <div class="pillar-num">02</div>
+      <h3>AI-Enabled Motions</h3>
+      <p>Predictive churn scoring, AI-assisted QBRs, and data-driven decision making embedded into daily operations.</p>
+    </div>
+    <div class="pillar">
+      <div class="pillar-num">03</div>
+      <h3>Outcome-Based Growth</h3>
+      <p>Scaling NRR through adoption-led growth and value realization — turning customers into an expansion engine.</p>
+    </div>
+  </div>
+</section>
+
+<!-- DIAGNOSTIC -->
+<section id="diagnostic">
+  <div class="diagnostic-intro">
+    <p class="section-eyebrow">Work With Me</p>
+    <h2 class="section-title">The <em>"Proof-of-Value"</em> Diagnostic</h2>
+    <div class="divider"></div>
+    <p>
+      I don't believe in long, theoretical consulting cycles. I start with a ruthlessly targeted audit
+      to find exactly where you are leaving money on the table.
+    </p>
+  </div>
+
+  <div class="steps">
+    <div class="step">
+      <div class="step-circle">1</div>
+      <h3>Selection</h3>
+      <p>We identify the one company in your portfolio that worries you most regarding value creation.</p>
+    </div>
+    <div class="step">
+      <div class="step-circle">2</div>
+      <h3>The Deep Dive</h3>
+      <p>I spend one full day with the CEO, CRO, and CFO auditing their core metrics and GTM engine.</p>
+    </div>
+    <div class="step">
+      <div class="step-circle">3</div>
+      <h3>The 5-Page Memo</h3>
+      <p>You receive a concise blueprint with immediate, actionable clarity for your portfolio.</p>
+    </div>
+  </div>
+
+  <div class="deliverable-box">
+    <h4>What You Receive</h4>
+    <div class="deliverable-items">
+      <div class="deliverable-item">
+        <span class="bullet"></span>
+        <span><strong style="color:var(--white)">3 Red Flags</strong> — Critical execution gaps identified in the audit.</span>
+      </div>
+      <div class="deliverable-item">
+        <span class="bullet"></span>
+        <span><strong style="color:var(--white)">Quantified Value Leakage</strong> — The exact Euro amount left on the table, calculated.</span>
+      </div>
+      <div class="deliverable-item">
+        <span class="bullet"></span>
+        <span><strong style="color:var(--white)">The 100-Day Plan</strong> — A structured roadmap to capture that value, starting immediately.</span>
+      </div>
+    </div>
+    <p class="guarantee">
+      My Guarantee: If this diagnostic does not provide immediate shareholder clarity, it's on me.
+      If it's useful, we discuss a structured long-term engagement.
+    </p>
+  </div>
+</section>
+
+<!-- WHY AKOVANCE -->
+<section id="why">
+  <p class="section-eyebrow">Why Akovance</p>
+  <h2 class="section-title">Operator-Grade Expertise. <em>No Exceptions.</em></h2>
+  <div class="divider"></div>
+  <p class="section-body">
+    I know exactly what awaits your portfolio companies between €10M and €100M ARR —
+    and more importantly, I know why "big company" playbooks fail when copy-pasted into this stage.
+  </p>
+  <div class="credentials">
+    <div class="cred-card">
+      <div class="cred-icon">🏛</div>
+      <div>
+        <h4>Vista Equity Heritage</h4>
+        <p>A decade of embedded work alongside Vista Equity Partners, managing a $40M ARR portfolio to 107% NRR.</p>
+      </div>
+    </div>
+    <div class="cred-card">
+      <div class="cred-icon">🌐</div>
+      <div>
+        <h4>Global Scale</h4>
+        <p>Built and scaled a global Business Value Consulting function from zero across North America, EMEA, and APAC.</p>
+      </div>
+    </div>
+    <div class="cred-card">
+      <div class="cred-icon">📈</div>
+      <div>
+        <h4>Growth Fund Expertise</h4>
+        <p>Specialized GTM work for Growth funds including Iris, Eurazeo, and Highland Capital Partners.</p>
+      </div>
+    </div>
+    <div class="cred-card">
+      <div class="cred-icon">⚙️</div>
+      <div>
+        <h4>Mid-Cap Tech Buyout</h4>
+        <p>Deep experience with top-tier European buyout sponsors: Apax, PAI Partners, and Ardian.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- AVAILABILITY -->
+<section id="availability">
+  <div class="avail-inner">
+    <p class="section-eyebrow">Limited Availability</p>
+    <h2 class="section-title" style="max-width:none;">Only 3–4 Funds Per Year.<br><em>By Design.</em></h2>
+    <div class="divider" style="margin: 1.5rem auto;"></div>
+    <p class="avail-note">
+      To guarantee the quality and "operating muscle" I bring to each partner,
+      I only launch with 3–4 funds per year.
+    </p>
+    <div class="status-grid">
+      <div class="status-item">
+        <div class="label"><span class="status-dot dot-filled"></span>Slots Filled</div>
+        <div class="value">2 of 4</div>
+      </div>
+      <div class="status-item">
+        <div class="label"><span class="status-dot dot-progress"></span>In Progress</div>
+        <div class="value">1 Diagnostic</div>
+      </div>
+      <div class="status-item">
+        <div class="label"><span class="status-dot dot-open"></span>Open</div>
+        <div class="value">1 Slot</div>
+      </div>
+    </div>
+    <p class="avail-note">
+      Currently booking diagnostic windows. If you have a portfolio company
+      that needs an execution reboot, let's talk.
+    </p>
+    <a href="mailto:grigor.kotzev@akovance.com" class="btn-primary">Contact Grigor Kotzev</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-brand">AK<span>O</span>VANCE</div>
+  <ul class="footer-links">
+    <li><a href="#problem">The Problem</a></li>
+    <li><a href="#solution">Solution</a></li>
+    <li><a href="#diagnostic">Diagnostic</a></li>
+    <li><a href="#why">Why Akovance</a></li>
+    <li><a href="mailto:grigor.kotzev@akovance.com">Contact</a></li>
+  </ul>
+  <span class="footer-copy">© 2026 Akovance. All rights reserved.</span>
+</footer>
+
+</body>
+</html>
